@@ -46,7 +46,7 @@
       canvas.height = height;
 
       var img = new Image;
-      img.src = 'waifu.png';
+      img.src = 'waifu_transparent.png';
 
       var xoffset = img.width * 0.5;
       var yoffset = img.height * 0.5;
@@ -66,7 +66,7 @@
           };
         }, false);
 
-    		setInterval(update, 10);
+    		setInterval(update, Math.floor(Math.random() * 200));
     	}
 
     	var update = function() {
