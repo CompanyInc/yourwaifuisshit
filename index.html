@@ -29,10 +29,54 @@
     </style>
   </head>
   <body>
+    <canvas id="im-an-artist"></canvas>
     <p class="credits">
       A <a href="http://companyinc.company">Company Inc.&reg;&trade;&copy;</a> Venture.
     </p>
 
+    <script>
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+      var timerID = 0;
+
+      var canvas = document.getElementById('im-an-artist');
+      var ctx = canvas.getContext('2d');
+
+      canvas.width = width;
+      canvas.height = height;
+
+      var img = new Image;
+      img.src = 'waifu.png';
+
+      var xoffset = img.width * 0.5;
+      var yoffset = img.height * 0.5;
+
+    	var speed = 10;
+    	var size = 8;
+    	var boids = [];
+    	var totalBoids = 150;
+      var mousePos = { x: null, y: null };
+
+    	var init = function() {
+        canvas.addEventListener('mousemove', function(evt) {
+          var rect = canvas.getBoundingClientRect();
+          mousePos = {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+          };
+        }, false);
+
+    		setInterval(update, 10);
+    	}
+
+    	var update = function() {
+        if (mousePos.x !== null && mousePos.y !== null) {
+          ctx.drawImage(img, mousePos.x, mousePos.y, img.width / 2, img.height / 2);
+        }
+    	}
+
+      init();
+    </script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
