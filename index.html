@@ -51,13 +51,13 @@
       var xoffset = img.width * 0.5;
       var yoffset = img.height * 0.5;
 
-    	var speed = 10;
-    	var size = 8;
-    	var boids = [];
-    	var totalBoids = 150;
+      var speed = 10;
+      var size = 8;
+      var boids = [];
+      var totalBoids = 150;
       var mousePos = { x: null, y: null };
 
-    	var init = function() {
+      var init = function() {
         canvas.addEventListener('mousemove', function(evt) {
           var rect = canvas.getBoundingClientRect();
           mousePos = {
@@ -66,14 +66,14 @@
           };
         }, false);
 
-    		setInterval(update, Math.floor(Math.random() * 200));
-    	}
+        setInterval(update, Math.floor(Math.random() * 200));
+      }
 
-    	var update = function() {
+      var update = function() {
         if (mousePos.x !== null && mousePos.y !== null) {
           ctx.drawImage(img, mousePos.x, mousePos.y, img.width / 2, img.height / 2);
         }
-    	}
+      }
 
       init();
     </script>
